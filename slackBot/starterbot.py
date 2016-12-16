@@ -50,11 +50,7 @@ def handle_command(command, channel):
     if command.startswith(RECOMMEND):
         PRODUCT = command.split(" ")[1]
         COUNT = command.split(" ")[2]
-        response = COUNT + " products similar to " + query_item(PRODUCT) + " : \n" + 
-            recommend(int(PRODUCT), int(COUNT))
-
-    # print("Command : " + command.split(" ")[0])
-    # print("Command : " + command.split(" ")[1])
+        response = COUNT + " products similar to " + query_item(int(PRODUCT)) + " : \n" + recommend(int(PRODUCT), int(COUNT))
 
     slack_client.api_call("chat.postMessage", channel=channel,
                           text=response, as_user=True)

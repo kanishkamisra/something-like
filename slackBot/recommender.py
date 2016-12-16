@@ -5,6 +5,7 @@ from sklearn.metrics.pairwise import linear_kernel
 products = pd.read_csv('../data/sample-data.csv')
 
 
+
 tfidf = TfidfVectorizer(analyzer = 'word', ngram_range = (1,3), min_df = 0, stop_words = 'english')
 tfidf_matrix = tfidf.fit_transform(products.description)
 
@@ -22,14 +23,15 @@ def query_item(item_id):
     return products.loc[products['id'] == item_id]['description'].tolist()[0].split(' - ')[0]
 
 def recommend(item_id, n):
-    results = []
+    results = ""
     # print(str(n) + " products similar to " + query_item(item_id) + " :")
     # print("------------------")
     recommendations = similarities[item_id][:n]
     for r in recommendations:
-        results.append(query_item(r[1]) + " (score:" + str(r[0]) + ")")
+        results = results + "\n" + query_item(r[1]) + " (score:" + str(r[0]) + ")"
+        # print (query_item(r[1]) + " (score:" + str(r[0]) + ")")
 
-    for result in results:
-        return result
+    return results
+    # return "hello"
 
 
