@@ -2,7 +2,7 @@ import time
 
 from slackclient import SlackClient
 
-from slackBot.recommender import recommend
+from slackBot.recommender import recommend, query_item
 
 # starterbot's ID as an environment variable
 # BOT_ID = os.environ.get("BOT_ID")
@@ -50,7 +50,8 @@ def handle_command(command, channel):
     if command.startswith(RECOMMEND):
         PRODUCT = command.split(" ")[1]
         COUNT = command.split(" ")[2]
-        response = recommend(int(PRODUCT), int(COUNT))
+        response = COUNT + " products similar to " + query_item(PRODUCT) + " : \n" + 
+            recommend(int(PRODUCT), int(COUNT))
 
     # print("Command : " + command.split(" ")[0])
     # print("Command : " + command.split(" ")[1])

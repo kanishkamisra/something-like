@@ -22,13 +22,14 @@ def query_item(item_id):
     return products.loc[products['id'] == item_id]['description'].tolist()[0].split(' - ')[0]
 
 def recommend(item_id, n):
-    result = []
-    print(str(n) + " products similar to " + query_item(item_id) + " :")
-    print("------------------")
+    results = []
+    # print(str(n) + " products similar to " + query_item(item_id) + " :")
+    # print("------------------")
     recommendations = similarities[item_id][:n]
     for r in recommendations:
-        result.append(query_item(r[1]) + " (score:" + str(r[0]) + ")")
+        results.append(query_item(r[1]) + " (score:" + str(r[0]) + ")")
 
-    return result
+    for result in results:
+        return result
 
 
