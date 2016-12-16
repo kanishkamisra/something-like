@@ -9,7 +9,6 @@ Content-based engine on a 500 item dataset!
 2. Pass in commands using "!recommend".
 
 ## Usage
---
 The following example will find for a product stored in the dataset by the ID of 12 and return 5 similar products.
 
 > @somethinglike !recommend 12 5
