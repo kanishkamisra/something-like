@@ -10,5 +10,6 @@ Content-based engine on a 500 item dataset!
 
 ## Usage
 The following example will look for a product stored in the dataset by the ID of 12 and return 5 similar products.
+The "score" in output is the similarity metric for the product being searched.
 
 ![alt text](https://github.com/kanishkamisra/something-like/blob/master/screenshot.png "Screenshot of the SlackBot SomethingLike")
