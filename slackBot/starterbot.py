@@ -1,6 +1,8 @@
 import time
+
 from slackclient import SlackClient
 
+from slackBot.recommender import recommend
 
 # starterbot's ID as an environment variable
 # BOT_ID = os.environ.get("BOT_ID")
@@ -14,7 +16,8 @@ LAKSHMI = "!lakshmi"
 CODE = "!code"
 THINK = "!think"
 RECOMMEND = "!recommend"
-USER_INPUT = ""
+PRODUCT = ""
+COUNT = 0
 
 # instantiate Slack & Twilio clients
 # slack_client = SlackClient(os.environ.get('xoxb-117640426146-oCZScxy8XJKzpHPJ0IALFoL5'))
@@ -45,8 +48,9 @@ def handle_command(command, channel):
         response = ":thinking_face:"
 
     if command.startswith(RECOMMEND):
-        # USER_INPUT = command.split(" ")[1]
-        response = ":thinking_face:"
+        PRODUCT = command.split(" ")[1]
+        COUNT = command.split(" ")[2]
+        response = recommend(int(PRODUCT), int(COUNT))
 
     # print("Command : " + command.split(" ")[0])
     # print("Command : " + command.split(" ")[1])
