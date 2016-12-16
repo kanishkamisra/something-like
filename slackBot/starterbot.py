@@ -6,7 +6,7 @@ from slackBot.recommender import recommend, query_item
 
 # starterbot's ID as an environment variable
 # BOT_ID = os.environ.get("BOT_ID")
-BOT_ID = "U3FJUCJ4A"
+BOT_ID = "ID"
 
 # constants
 AT_BOT = "<@" + BOT_ID + ">"
