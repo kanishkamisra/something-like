@@ -13,6 +13,8 @@ CHECK = "!check"
 LAKSHMI = "!lakshmi"
 CODE = "!code"
 THINK = "!think"
+RECOMMEND = "!recommend"
+USER_INPUT = ""
 
 # instantiate Slack & Twilio clients
 # slack_client = SlackClient(os.environ.get('xoxb-117640426146-oCZScxy8XJKzpHPJ0IALFoL5'))
@@ -42,6 +44,12 @@ def handle_command(command, channel):
     if command.startswith(THINK):
         response = ":thinking_face:"
 
+    if command.startswith(RECOMMEND):
+        # USER_INPUT = command.split(" ")[1]
+        response = ":thinking_face:"
+
+    # print("Command : " + command.split(" ")[0])
+    # print("Command : " + command.split(" ")[1])
 
     slack_client.api_call("chat.postMessage", channel=channel,
                           text=response, as_user=True)
